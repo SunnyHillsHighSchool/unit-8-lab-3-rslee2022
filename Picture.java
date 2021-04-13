@@ -367,7 +367,38 @@ public class Picture
   }
 
    ////////////////////// methods ///////////////////////////////////////
-
+   //written by: Rachel Lee
+   public void sepiaTone()
+   {
+     //Create a 2D array of pixels
+     Pixel[][] pixels = this.getPixels2D();
+     //create a pixel variable and set it to null
+     Pixel pixel = null;
+     //create integer variable redValue
+     int redValue = 0;
+     //create integer variable greenValue
+     int greenValue = 0;
+     //create integer variable blueValue
+     int blueValue = 0;
+     //For loop through rows: set loop control variable integer r equal to 0, condition - r is less than length of array (number of rows), r increments by 1
+     for(int r = 0; r < pixels.length; r++)
+     {
+       //For loop through columns: set loop control variable integer c equal to 0, condition - c is less than number of columns, c increments by 1
+       for(int c = 0; c < pixels[0].length; c++)
+       {
+         //get the current pixel
+        pixel = pixels[r][c];
+        //get the current color values for red, green, and blue
+        redValue = pixel.getRed();
+        greenValue = pixel.getGreen();
+        blueValue = pixel.getBlue();
+        //Use sepia tone formula to set new red, green, and blue values for pixel - cast to int
+        pixel.setRed((int)(0.393*redValue + 0.769*greenValue + 0.189*blueValue));
+        pixel.setGreen((int)(0.349*redValue + 0.686*greenValue + 0.168*blueValue));
+        pixel.setBlue((int)(0.272*redValue + 0.534*greenValue + 0.131*blueValue));
+       }
+     }
+   }
    
 
 
